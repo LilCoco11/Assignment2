@@ -1,0 +1,59 @@
+<html>
+<head>
+	<title>Part 1</title>
+	<style>
+		label {
+			font-weight: bold;
+			display: inline-block;
+			width: 100px;
+			text-align: right;
+			margin-right: 10px;
+		}
+		input[type="text"] {
+			width: 150px;
+		}
+	</style>
+</head>
+<body>
+	<form>
+		<label for="room">Room Rental:</label>
+		<input type="text" id="room" value="1"><br>
+		
+		<label for="food">Food:</label>
+		<input type="text" id="food" value="20"><br>
+		
+		<label for="entertainment">Entertainment:</label>
+		<input type="text" id="entertainment" value="30"><br>
+		
+		<label for="total">Total:</label>
+		<input type="text" id="total" readonly><br>
+		
+		<label for="tax">With Tax:</label>
+		<input type="text" id="tax" readonly><br>
+	</form>
+
+	<script>
+		let room = document.getElementById("room");
+		let food = document.getElementById("food");
+		let entertainment = document.getElementById("entertainment");
+		let total = document.getElementById("total");
+		let tax = document.getElementById("tax");
+
+		function calculateTotal() {
+			let roomVal = parseFloat(room.value);
+			let foodVal = parseFloat(food.value);
+			let entertainmentVal = parseFloat(entertainment.value);
+
+			let subtotal = roomVal + foodVal + entertainmentVal;
+			total.value = subtotal.toFixed(2);
+
+			let taxVal = subtotal * 0.13;
+			tax.value = (subtotal + taxVal).toFixed(2);
+		}
+
+		room.addEventListener("input", calculateTotal);
+		food.addEventListener("input", calculateTotal);
+		entertainment.addEventListener("input", calculateTotal);
+	</script>
+</body>
+</html>

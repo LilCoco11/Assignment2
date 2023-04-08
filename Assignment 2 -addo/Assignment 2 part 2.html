@@ -1,0 +1,73 @@
+<html>
+<head>
+	<title>Toggle Capital Name</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+		}
+		h1 {
+			text-align: center;
+		}
+		p {
+			font-size: 20px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			cursor: pointer;
+		}
+		.yellow {
+			background-color: yellow;
+		}
+		.green {
+			background-color: green;
+		}
+	</style>
+	<script>
+		window.onload = function() {
+			var capital = document.getElementById("capital");
+			var hideBtn = document.getElementById("hideBtn");
+			var showBtn = document.getElementById("showBtn");
+			var toggleBtn = document.getElementById("toggleBtn");
+			var firstPara = document.getElementById("firstPara");
+			var secondPara = document.getElementById("secondPara");
+
+			hideBtn.onclick = function() {
+				capital.style.display = "none";
+			};
+
+			showBtn.onclick = function() {
+				capital.style.display = "block";
+			};
+
+			toggleBtn.onclick = function() {
+				if (capital.style.display === "none") {
+					capital.style.display = "block";
+				} else {
+					capital.style.display = "none";
+				}
+			};
+
+			firstPara.onmouseover = function() {
+				firstPara.classList.add("yellow");
+			};
+
+			firstPara.onmouseout = function() {
+				firstPara.classList.remove("yellow");
+			};
+
+			secondPara.onclick = function() {
+				secondPara.classList.toggle("green");
+			};
+		};
+	</script>
+</head>
+<body>
+	<h1>Toggle Capital Name</h1>
+	<p>Country: CANADA</p>
+	<p id="capital">Capital: OTTAWA</p>
+	<button id="hideBtn">Hide capital name</button>
+	<button id="showBtn">Show capital name</button>
+	<button id="toggleBtn">Toggle</button>
+	<p id="firstPara">Hover on this paragraph for Yellow</p>
+	<p id="secondPara">Click on this paragraph for Green</p>
+</body>
+</html>
